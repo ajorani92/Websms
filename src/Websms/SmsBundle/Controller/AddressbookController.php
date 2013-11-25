@@ -47,18 +47,31 @@ class AddressbookController extends Controller
     {
         $pageTitle = $this->get('translator')->trans('Groups');
         $groups = $this->get('sms.group.repository')->findAll();
+        $page = $this->get('request')->query->get('page', 1);
+        $groupsPerPage = 4;
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $groups,
+            $page,
+            $groupsPerPage
+        );
+
+        $pageDataFrom = ($page * $groupsPerPage) - $groupsPerPage + 1;
+        $pageDataTo = $pageDataFrom + $groupsPerPage - 1;
 
         return $this->render('SmsBundle:Addressbook:groups.html.twig', array(
             'page_title' => $pageTitle,
-            'groups' => $groups,
-            'groupCount' => count($groups)
+            'groups' => $pagination,
+            'pageDataFrom' => $pageDataFrom,
+            'pageDataTo' => $pageDataTo
         ));
     }
 
     public function groupeditAction($groupId)
     {
         $pageTitle = $this->get('translator')->trans('Groups');
-        $groups = $this->get('sms.group.repository')->findAll();error_log(gettype($groups));
+        $groups = $this->get('sms.group.repository')->findAll();
 
         return $this->render('SmsBundle:Addressbook:groups.html.twig', array(
             'page_title' => $pageTitle,
