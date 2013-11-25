@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WebSMS Login</title>
+    <meta name="author" content="Vladimir Popov" />
+    <meta name="description" content="Supr admin template - new premium responsive admin template. This template is designed to help you build the site administration without losing valuable time.Template contains all the important functions which must have one backend system.Build on great twitter boostrap framework" />
+    <meta name="keywords" content="admin, admin template, admin theme, responsive, responsive admin, responsive admin template, responsive theme, themeforest, 960 grid system, grid, grid theme, liquid, masonry, jquery, administration, administration template, administration theme, mobile, touch , responsive layout, boostrap, twitter boostrap" />
+    <meta name="application-name" content="Websms" />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% stylesheets
+    'bundles/user/css/bootstrap/bootstrap.css' filter='cssrewrite'
+    'bundles/user/css/bootstrap/bootstrap-responsive.css' filter='cssrewrite'
+    'bundles/user/css/supr-theme/jquery.ui.supr.css'
+    'bundles/user/css/icons.css' filter='cssrewrite'
+    'bundles/user/forms/uniform/uniform.default.css' filter='cssrewrite'
+    'bundles/user/css/main.css' filter='cssrewrite'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="{{ asset('bundles/websms/images/favicon.ico') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('bundles/user/images/apple-touch-icon-144-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('bundles/user/images/apple-touch-icon-114-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('bundles/user/images/apple-touch-icon-72-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('bundles/user/images/apple-touch-icon-57-precomposed.png') }}" />
+
+</head>
+<body class="loginPage">
+<div class="container-fluid">
+    <div id="header_login">
+        <div class="row-fluid">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand" href="">Websms</a>
+                    </div>
+                </div><!-- /navbar-inner -->
+            </div><!-- /navbar -->
+
+
+        </div><!-- End .row-fluid -->
+
+    </div><!-- End #header -->
+</div><!-- End .container-fluid -->
+<div style="width:200%;position:fixed;">
+    <img style="top:0;bottom:0;left:0;right:0;margin:auto;width:50%;" src="https://abs.twimg.com/a/1363285036/t1/img/front_page/cricket@2x.jpg">
+</div>
+<div class="container-fluid">
+</div>
+<div class="loginContainer reg-confirmed" style="position: absolute;left:25%;width:400px;">
+    <h1>Dobrodošli na Websms</h1>
+    <p>Online portal za slanje SMS poruka</p>
+    <p>Ukoliko nemate nalog, možete se ovde registrovati</p>
+    <p><a href="{{ path("fos_user_registration_register") }}"><button class="btn btn-primary btn-large">Registruj se</button></a></p>
+</div>
+<div class="loginContainer" style="left: 65%;">
+    {% if error %}
+        <div class="alert alert-error top10">{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+    <form class="form-horizontal" id="loginForm" method="post" action="{{ path("fos_user_security_check") }}">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <div class="form-row row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <label class="form-label span12" for="username">
+                        {{ 'security.login.username'|trans({}, 'FOSUserBundle') }}
+                        <span class="icon16 icomoon-icon-user-3 right gray marginR10"></span>
+                    </label>
+                    <input class="span12" id="username" type="text" name="_username" value="{{ last_username }}" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <label class="form-label span12" for="password">
+                        {{ 'security.login.password'|trans({}, 'FOSUserBundle') }}
+                        <span class="icon16 icomoon-icon-locked right gray marginR10"></span>
+                        <!--span class="forgot"><a href="#">{% trans %}Forgot password{% endtrans %}</a></span-->
+                    </label>
+                    <input class="span12" id="password" type="password" name="_password" value="" />
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+        </div>
+
+        <div class="form-row row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <div class="form-actions">
+                        <div class="span12 controls">
+                            <button type="submit" class="btn btn-info right" id="_submit"><span class="icon16 icomoon-icon-enter white"></span>{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+</div><!-- End .container-fluid -->
+<!-- Le javascript
+================================================== -->
+<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+{% javascripts
+'bundles/user/js/bootstrap/bootstrap.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script type="text/javascript">
+    // document ready function
+    $(document).ready(function() {
+        $("input, textarea, select").not('.nostyle').uniform();
+        $("#loginForm").validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlength: 4
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                }
+            },
+            messages: {
+                username: {
+                    required: "Fill me please",
+                    minlength: "My name is bigger"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "My password is more that 6 chars"
+                }
+            }
+        });
+    });
+</script>
+<!-- NACHALO NA TYXO.BG BROYACH -->
+<script type="text/javascript">
+    <!--
+    d=document;d.write('<a href="https://www.tyxo.bg/?138779" title="Tyxo.bg counter"><img width="1" height="1" border="0" alt="Tyxo.bg counter" src="'+location.protocol+'//cnt.tyxo.bg/138779?rnd='+Math.round(Math.random()*2147483647));
+    d.write('&sp='+screen.width+'x'+screen.height+'&r='+escape(d.referrer)+'"></a>');
+    //-->
+</script><noscript><a href="http://www.tyxo.bg/?138779" title="Tyxo.bg counter"><img src="https://cnt.tyxo.bg/138779" width="1" height="1" border="0" alt="Tyxo.bg counter" /></a></noscript>
+<!-- KRAI NA TYXO.BG BROYACH -->
+</body>
+</html>

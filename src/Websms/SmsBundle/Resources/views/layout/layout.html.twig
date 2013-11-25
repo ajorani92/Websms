@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Websms | {{ page_title }}</title>
+    <meta name="author" content="Vladimir Popov" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="application-name" content="Websms" />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Le styles -->
+    <!-- Use new way for google web fonts
+    http://www.smashingmagazine.com/2012/07/11/avoiding-faux-weights-styles-google-web-fonts -->
+    <!-- Headings -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />  -->
+    <!-- Text -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' /> -->
+    <!--[if lt IE 9]>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:700" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    <!-- Core stylesheets do not remove -->
+    {% stylesheets
+    'bundles/websms/css/bootstrap/bootstrap.min.css' filter='cssrewrite'
+    'bundles/websms/css/bootstrap/bootstrap-responsive.min.css' filter='cssrewrite'
+    'bundles/websms/css/supr-theme/jquery.ui.supr.css'
+    'bundles/websms/css/icons.css' filter='cssrewrite'
+    'bundles/websms/plugins/misc/qtip/jquery.qtip.css' filter='cssrewrite'
+    'bundles/websms/plugins/forms/uniform/uniform.default.css' filter='cssrewrite'
+    'bundles/websms/css/main.css' filter='cssrewrite'
+    'bundles/websms/css/custom.css' filter='cssrewrite'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="{{ asset('bundles/websms/images/favicon.ico') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('bundles/websms/images/apple-touch-icon-144-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('bundles/websms/images/apple-touch-icon-114-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('bundles/websms/images/apple-touch-icon-72-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('bundles/websms/images/apple-touch-icon-57-precomposed.png') }}" />
+
+    <script type="text/javascript">
+        //adding load class to body and hide page
+        document.documentElement.className += 'loadstate';
+    </script>
+
+</head>
+
+<body>
+<!-- loading animation -->
+<div id="qLoverlay"></div>
+<div id="qLbar"></div>
+
+<div id="header">
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="brand" href="{{ path('_welcome') }}">Websms</span></a>
+                <div class="nav-no-collapse">
+                    <ul class="nav">
+                        <li><a href="{{ path('_welcome') }}"><span class="icon16 icomoon-icon-screen-2"></span> {% trans %}Dashboard{% endtrans %}</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="icon16 icomoon-icon-cog"></span> {% trans %}Settings{% endtrans %}
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="menu">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><span class="icon16 icomoon-icon-equalizer"></span>{% trans %}Account{% endtrans %}</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="icon16 icomoon-icon-wrench"></span>{% trans %}Sender{% endtrans %}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav pull-right usernav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+                                <img src="{{ asset('bundles/websms/images/icons/user.png') }}" alt="" class="image" />
+                                <span class="txt">{{ app.user.username }}</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="menu">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><span class="icon16 icomoon-icon-user-3"></span>{% trans %}Edit profile{% endtrans %}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('fos_user_security_logout') }}"><span class="icon16 icomoon-icon-exit"></span> {% trans %}Logout{% endtrans %}</a></li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div>
+        </div><!-- /navbar-inner -->
+    </div><!-- /navbar -->
+</div><!-- End #header -->
+
+<div id="wrapper">
+
+<!--Responsive navigation button-->
+<div class="resBtn">
+    <a href="#"><span class="icon16 minia-icon-list-3"></span></a>
+</div>
+
+<!--Sidebar background-->
+<div id="sidebarbg"></div>
+<!--Sidebar content-->
+<div id="sidebar">
+
+    <div class="shortcuts">
+        <ul>
+            <li><a href="support.html" title="Support section" class="tip"><span class="icon24 icomoon-icon-support"></span></a></li>
+            <li><a href="#" title="Database backup" class="tip"><span class="icon24 icomoon-icon-database"></span></a></li>
+            <li><a href="charts.html" title="Sales statistics" class="tip"><span class="icon24 icomoon-icon-pie-2"></span></a></li>
+            <li><a href="#" title="Write post" class="tip"><span class="icon24 icomoon-icon-pencil"></span></a></li>
+        </ul>
+    </div><!-- End search -->
+
+    <div class="sidenav">
+
+        <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+            <h5 class="title" style="margin-bottom:0">{% trans %}Navigation{% endtrans %}</h5>
+        </div><!-- End .sidenav-widget -->
+
+        <div class="mainnav">
+            <ul>
+                <li>
+                    <a href="#"><span class="icon16 icomoon-icon-list-view-2"></span>{% trans %}SMS Messaging{% endtrans %}</a>
+                    <ul class="sub">
+                        <li><a href="{{ path('_send_sms') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Send Single SMS{% endtrans %}</a></li>
+                        <li><a href="{{ path('_sms_bulk') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Send Bulk SMS{% endtrans %}</a></li>
+                        <li><a href="{{ path('_sms_address') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Send SMS from Addressbook{% endtrans %}</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><span class="icon16 icomoon-icon-list-view-2"></span>{% trans %}Address Book{% endtrans %}</a>
+                    <ul class="sub">
+                        <li><a href="{{ path('_address_book_items') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Address Book Items{% endtrans %}</a></li>
+                        <li><a href="{{ path('_create_address_book_item') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Create new address book contact{% endtrans %}</a></li>
+                        <li><a href="{{ path('_groups') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Groups{% endtrans %}</a></li>
+                        <li><a href="{{ path('_create_group') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Create new group{% endtrans %}</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="typo.html"><span class="icon16 icomoon-icon-font"></span>{% trans %}Reports{% endtrans %}</a></li>
+
+                {% if is_granted("ROLE_ADMIN") %}
+                <li>
+                    <a href="#"><span class="icon16 icomoon-icon-list-view-2"></span>{% trans %}Providers{% endtrans %}</a>
+                    <ul class="sub">
+                            <li><a href="{{ path('_provider_create') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Create Provider{% endtrans %}</a></li>
+                            <li><a href="{{ path('_provider_list') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Provider List{% endtrans %}</a></li>
+
+                    </ul>
+                </li>
+                {% endif %}
+
+                <li><a href="typo.html"><span class="icon16 icomoon-icon-font"></span>{% trans %}Help & FAQ{% endtrans %}</a></li>
+            </ul>
+        </div>
+    </div><!-- End sidenav -->
+
+</div><!-- End #sidebar -->
+
+<!--Body content-->
+<div id="content" class="clearfix">
+    <div class="contentwrapper"><!--Content wrapper-->
+
+        <div class="heading">
+
+            <h3>{{ page_title }}</h3>
+
+            <div class="resBtnSearch">
+                <a href="#"><span class="icon16 icomoon-icon-search-3"></span></a>
+            </div>
+
+            <ul class="breadcrumb">
+                <li>{% trans %}You are here{% endtrans %}</li>
+                <li>
+                    <a href="#" class="tip" title="back to dashboard">
+                        <span class="icon16 icomoon-icon-screen-2"></span>
+                    </a>
+                            <span class="divider">
+                                <span class="icon16 icomoon-icon-arrow-right-2"></span>
+                            </span>
+                </li>
+                <li class="active">{{ page_title }}</li>
+            </ul>
+
+        </div><!-- End .heading-->
+
+        <!-- Build page from here: -->
+        <div class="row-fluid">
+
+            {% block body %}{% endblock %}
+
+        </div><!-- End .row-fluid -->
+        <!--End page -->
+
+    </div><!-- End contentwrapper -->
+</div><!-- End #content -->
+
+</div><!-- End #wrapper -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Important plugins put in all pages -->
+<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+{% javascripts
+    'bundles/websms/js/bootstrap/bootstrap.js'
+    'bundles/websms/plugins/tables/dataTables/jquery.dataTables.min.js'
+    'bundles/websms/plugins/misc/qtip/jquery.qtip.min.js'
+    'bundles/websms/plugins/misc/totop/jquery.ui.totop.min.js'
+    'bundles/websms/plugins/misc/search/tipuesearch_set.js'
+    'bundles/websms/plugins/misc/search/tipuesearch_data.js'
+    'bundles/websms/plugins/misc/search/tipuesearch.js'
+    'bundles/websms/plugins/forms/watermark/jquery.watermark.min.js'
+    'bundles/websms/plugins/forms/uniform/jquery.uniform.min.js'
+    'bundles/websms/plugins/fix/ios-fix/ios-orientationchange-fix.js'
+    'bundles/websms/plugins/fix/touch-punch/jquery.ui.touch-punch.min.js'
+    'bundles/websms/js/main.js'
+    'bundles/websms/js/empty.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+</body>
+</html>

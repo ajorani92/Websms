@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="sr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>sms.message.max</source>
+                <target>Poruka ne sme biti duža od 160 karaktera.</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>sms.sender.max</source>
+                <target>Sender ne sme biti duži od 12 karaktera.</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>sms.sender.min</source>
+                <target>Sender ne sme biti kraći od 3 karaktera.</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>sms.destination.min</source>
+                <target>Broj ne sme biti kraći od 9 karaktera.</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>sms.destination.type</source>
+                <target>Broj mora biti u validnom formatu.</target>
+             </trans-unit>
+             <trans-unit id="6">
+                <source>sms.bulk.mime</source>
+                <target>Pogrešan tip fajla.</target>
+             </trans-unit>
+             <trans-unit id="7">
+                <source>sms.bulk.max.size</source>
+                <target>Fajl ne sme biti veci od 1MB.</target>
+             </trans-unit>
+             <trans-unit id="8">
+                <source>group.name.max</source>
+                <target>Ime grupe je najvise 40 karaktera.</target>
+             </trans-unit>
+             <trans-unit id="9">
+                <source>group.description.max</source>
+                <target>Ime opisa je najvise 200 karaktera.</target>
+             </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,30 @@
+{% extends 'UserBundle::Layouts/base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div id="header_login">
+            <div class="row-fluid">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <a class="brand" href="">Websms</a>
+                        </div>
+                    </div><!-- /navbar-inner -->
+                </div><!-- /navbar -->
+
+
+            </div><!-- End .row-fluid -->
+
+        </div><!-- End #header -->
+    </div><!-- End .container-fluid -->
+    <div style="width:200%;position:fixed;">
+        <img style="top:0;bottom:0;left:0;right:0;margin:auto;width:50%;" src="https://abs.twimg.com/a/1363285036/t1/img/front_page/cricket@2x.jpg">
+    </div>
+    <div class="container-fluid">
+        <div class="loginContainer">
+            {% block fos_user_content %}
+                {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+            {% endblock fos_user_content %}
+        </div>
+    </div><!-- End .container-fluid -->
+{% endblock %}

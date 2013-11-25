@@ -1,0 +1,34 @@
+{{ form_start(form) }}
+        {{ form_errors(form) }}
+
+<div>
+    {{ form_label(form.name) }}
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name) }}
+</div>
+
+<div>
+    {{ form_label(form.host) }}
+    {{ form_errors(form.host) }}
+    {{ form_widget(form.host) }}
+</div>
+
+<div>
+    {{ form_label(form.destination) }}
+    {{ form_errors(form.destination) }}
+    {{ form_widget(form.destination) }}
+</div>
+
+<div>
+    {{ form_label(form.sender) }}
+    {{ form_errors(form.sender) }}
+    {{ form_widget(form.sender) }}
+</div>
+
+<div>
+    {{ form_label(form.message) }}
+    {{ form_errors(form.message) }}
+    {{ form_widget(form.message) }}
+</div>
+
+{{ form_end(form) }}

@@ -1,0 +1,10 @@
+_user_bundle:
+    resource: '@UserBundle/Resources/config/routing.yml'
+
+_sms_bundle:
+    resource: '@SmsBundle/Resources/config/routing.yml'
+
+_home:
+    pattern:  /
+    defaults: { _controller: SmsBundle:Index:index }
+

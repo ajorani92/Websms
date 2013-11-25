@@ -1,0 +1,10 @@
+<div class="registerContainer">
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal" id="loginForm">
+    {{ form_widget(form) }}
+    <div class="row-fluid">
+        <div class="span12 controls">
+            <input class="btn btn-info right reg-button" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+        </div>
+    </div>
+</form>
+</div>

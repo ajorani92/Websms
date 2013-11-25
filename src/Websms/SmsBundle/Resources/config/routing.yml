@@ -1,0 +1,53 @@
+_send_sms:
+    pattern:  /send-sms
+    defaults: { _controller: SmsBundle:Sms:index }
+
+_sms_bulk:
+    pattern:  /send-bulk
+    defaults: { _controller: SmsBundle:Sms:bulk }
+
+_sms_address:
+    pattern:  /send-addressbook
+    defaults: { _controller: SmsBundle:Sms:address }
+
+_provider_list:
+    pattern:  /provider-settings
+    defaults: { _controller: SmsBundle:Provider:index }
+
+_provider_create:
+    pattern:  /create-provider
+    defaults: { _controller: SmsBundle:Provider:create }
+
+_provider_update:
+    pattern:  /update-provider/{providerId}
+    defaults: { _controller: SmsBundle:Provider:update }
+
+_provider_delete:
+    pattern:  /delete-provider/{providerId}
+    defaults: { _controller: SmsBundle:Provider:delete }
+
+_provider_set:
+    pattern:  /set-provider
+    defaults: { _controller: SmsBundle:Provider:set }
+
+
+
+_address_book_items:
+    pattern:  /list-addressbook
+    defaults: { _controller: SmsBundle:Sms:index }
+
+_create_address_book_item:
+    pattern:  /create-contact
+    defaults: { _controller: SmsBundle:Sms:bulk }
+
+_groups:
+    pattern:  /groups
+    defaults: { _controller: SmsBundle:Addressbook:groups }
+
+_create_group:
+    pattern:  /create-group
+    defaults: { _controller: SmsBundle:Addressbook:groupcreate }
+
+_edit_group:
+    pattern:  /edit-group/{groupId}
+    defaults: { _controller: SmsBundle:Addressbook:groupedit }

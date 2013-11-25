@@ -1,0 +1,63 @@
+{% extends 'UserBundle::Layouts/base.html.twig' %}
+
+{% block body %}
+<div class="container-fluid">
+</div>
+<div class="loginContainer reg-confirmed" style="position: absolute;left:25%;width:400px;">
+    <h1>Dobrodošli na Websms</h1>
+    <p>Online portal za slanje SMS poruka</p>
+    <p>Ukoliko nemate nalog, možete se ovde registrovati</p>
+    <p><a href="{{ path("fos_user_registration_register") }}"><button class="btn btn-primary btn-large">Registruj se</button></a></p>
+</div>
+<div class="loginContainer" style="left: 65%;">
+    {% if error %}
+        <div class="alert alert-error top10">{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+    <form class="form-horizontal" id="loginForm" method="post" action="{{ path("fos_user_security_check") }}">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <div class="form-row row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <label class="form-label span12" for="username">
+                        {{ 'security.login.username'|trans({}, 'FOSUserBundle') }}
+                        <span class="icon16 icomoon-icon-user-3 right gray marginR10"></span>
+                    </label>
+                    <input class="span12" id="username" type="text" name="_username" value="{{ last_username }}" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <label class="form-label span12" for="password">
+                        {{ 'security.login.password'|trans({}, 'FOSUserBundle') }}
+                        <span class="icon16 icomoon-icon-locked right gray marginR10"></span>
+                        <!--span class="forgot"><a href="#">{% trans %}Forgot password{% endtrans %}</a></span-->
+                    </label>
+                    <input class="span12" id="password" type="password" name="_password" value="" />
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+        </div>
+
+        <div class="form-row row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <div class="form-actions">
+                        <div class="span12 controls">
+                            <button type="submit" class="btn btn-info right" id="_submit"><span class="icon16 icomoon-icon-enter white"></span>{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+</div><!-- End .container-fluid -->
+{% endblock %}

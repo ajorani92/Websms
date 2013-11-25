@@ -1,0 +1,18 @@
+parameters:
+#    user.example.class: Websms\UserBundle\Example
+
+#services:
+#    user.example:
+#        class: %user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+    user_login:
+        class: Websms\UserBundle\EventListener\LoginListener
+        arguments: [@router]
+        tags:
+            - { name: kernel.event_subscriber }
+    sms.form.send_sms:
+        class: Websms\SmsBundle\Form\SendSms
+        tags:
+            - { name: form.send_sms, alias: send_sms_form }

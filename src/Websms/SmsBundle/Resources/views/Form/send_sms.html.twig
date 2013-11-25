@@ -1,0 +1,22 @@
+{{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        <div>
+            {{ form_label(form.destination) }}
+            {{ form_errors(form.destination) }}
+            {{ form_widget(form.destination) }}
+        </div>
+
+        <div>
+            {{ form_label(form.sender) }}
+            {{ form_errors(form.sender) }}
+            {{ form_widget(form.sender) }}
+        </div>
+
+        <div>
+            {{ form_label(form.message) }}
+            {{ form_errors(form.message) }}
+            {{ form_widget(form.message) }}
+        </div>
+
+{{ form_end(form) }}

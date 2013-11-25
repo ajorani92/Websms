@@ -1,0 +1,61 @@
+{% extends 'SmsBundle::layout/layout.html.twig' %}
+
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <div class="span6">
+
+        <div class="box">
+
+            <div class="title">
+
+                <h4>
+                    <span class="icon16 icomoon-icon-equalizer-2"></span>
+                    <span>{% trans %}Providers Details{% endtrans %}</span>
+                </h4>
+                <a href="#" class="minimize">Minimize</a>
+            </div>
+            <div class="content noPad">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{% trans %}Name{% endtrans %}</th>
+                        <th>{% trans %}Host{% endtrans %}</th>
+                        <th>{% trans %}Enabled{% endtrans %}</th>
+                        <th>{% trans %}Actions{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for provider in providers %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ provider.name }}</td>
+                                <td>{{ provider.host }}</td>
+                                <td>
+                                    {% if provider.enabled %}
+                                        1
+                                    {% else %}
+                                        0
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="controls center">
+                                        <a href="{{ path('_provider_update', { 'providerId': provider.id }) }}" title="{% trans %}Update Provider{% endtrans %}" class="tip"><span class="icon12 icomoon-icon-pencil"></span></a>
+                                        <a href="{{ path('_provider_delete', { 'providerId': provider.id }) }}" title="{% trans %}Delete Provider{% endtrans %}" class="tip"><span class="icon12 icomoon-icon-remove"></span></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div><!-- End .box -->
+
+    </div><!-- End .span6 -->
+{% endblock %}

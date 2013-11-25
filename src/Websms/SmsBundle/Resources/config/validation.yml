@@ -1,0 +1,49 @@
+Websms\SmsBundle\Entity\Message:
+    properties:
+        message:
+            - NotBlank: ~
+            - Length:
+                max: 160
+                maxMessage: "sms.message.max"
+        sender:
+            - NotBlank: ~
+            - Length:
+                max: 12
+                maxMessage: "sms.sender.max"
+                min: 3
+                minMessage: "sms.sender.min"
+        destination:
+            - NotBlank: ~
+            - Length:
+                min: 9
+                minMessage: "sms.destination.min"
+            - Type:
+                type: numeric
+                message: "sms.destination.type"
+        bulkFile:
+            - NotBlank: ~
+            - File:
+                maxSize: 1024k
+                maxSizeMessage: "sms.bulk.max.size"
+                mimeTypes: [text/csv,application/csv,text/plain]
+                mimeTypesMessage: "sms.bulk.mime"
+
+Websms\SmsBundle\Entity\Provider:
+    constraints:
+        #- Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: enabled
+    properties:
+        name:
+            - NotBlank: ~
+
+Websms\SmsBundle\Entity\Group:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 40
+                maxMessage: "group.name.max"
+        description:
+            - NotBlank: ~
+            - Length:
+                max: 200
+                maxMessage: "group.description.max"
