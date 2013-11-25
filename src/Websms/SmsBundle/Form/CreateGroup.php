@@ -4,8 +4,6 @@ namespace Websms\SmsBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 class CreateGroup extends AbstractType
 {
@@ -14,7 +12,7 @@ class CreateGroup extends AbstractType
     {
         $builder->add('name', 'text')
             ->add('description', 'textarea')
-            ->add('save', 'submit', array('attr' => array('formnovalidate' => 'formnovalidate'), 'label' => 'Create'))
+            ->add('save', 'submit', array('attr' => array('formnovalidate' => 'formnovalidate'), 'label' => 'Save'))
         ;
     }
 

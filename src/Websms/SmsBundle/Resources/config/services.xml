@@ -20,6 +20,13 @@
             <argument type="string">Websms\SmsBundle\Entity\Group</argument>
         </service>
 
+        <service id="sms.contact.repository"
+                 factory-service="doctrine.orm.entity_manager"
+                 factory-method="getRepository"
+                 class="Websms\SmsBundle\Repository\ContactRepository" >
+            <argument type="string">Websms\SmsBundle\Entity\Contact</argument>
+        </service>
+
         <service id="sms_sender" class="Websms\SmsBundle\Service\MessageSender">
             <argument type="service" id="sms.provider.repository" />
             <argument type="service" id="provider.service" />

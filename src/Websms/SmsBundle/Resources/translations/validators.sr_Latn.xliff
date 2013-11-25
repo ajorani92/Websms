@@ -28,15 +28,27 @@
              </trans-unit>
              <trans-unit id="7">
                 <source>sms.bulk.max.size</source>
-                <target>Fajl ne sme biti veci od 1MB.</target>
+                <target>Fajl ne sme biti veći od 1MB.</target>
              </trans-unit>
              <trans-unit id="8">
                 <source>group.name.max</source>
-                <target>Ime grupe je najvise 40 karaktera.</target>
+                <target>Ime grupe je najviše 40 karaktera.</target>
              </trans-unit>
              <trans-unit id="9">
                 <source>group.description.max</source>
                 <target>Ime opisa je najvise 200 karaktera.</target>
+             </trans-unit>
+             <trans-unit id="10">
+                 <source>contact.name.max</source>
+                 <target>Ime kontakta je najviše 40 karaktera.</target>
+             </trans-unit>
+             <trans-unit id="11">
+                 <source>contact.number.max</source>
+                 <target>Broj kontakta je najviše 20 karaktera.</target>
+             </trans-unit>
+             <trans-unit id="12">
+                 <source>contact.number.type</source>
+                 <target>Broj kontakta mora biti numerički.</target>
              </trans-unit>
         </body>
     </file>

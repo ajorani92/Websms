@@ -47,3 +47,21 @@ Websms\SmsBundle\Entity\Group:
             - Length:
                 max: 200
                 maxMessage: "group.description.max"
+
+Websms\SmsBundle\Entity\Contact:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 40
+                maxMessage: "contact.name.max"
+        number:
+            - NotBlank: ~
+            - Length:
+                max: 20
+                maxMessage: "contact.number.max"
+            - Type:
+                type: numeric
+                message: "contact.number.type"
+        group:
+            - NotBlank: ~

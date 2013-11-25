@@ -1,0 +1,25 @@
+<div class="span2">
+{{ form_start(form) }}
+        {{ form_errors(form) }}
+
+<div>
+    {{ form_label(form.name) }}
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name) }}
+</div>
+
+<div>
+    {{ form_label(form.number) }}
+    {{ form_errors(form.number) }}
+    {{ form_widget(form.number) }}
+</div>
+
+<div>
+    {{ form_label(form.group) }}
+    {{ form_errors(form.group) }}
+    {{ form_widget(form.group) }}
+</div>
+
+<br><br>
+{{ form_end(form) }}
+</div>

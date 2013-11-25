@@ -26,7 +26,10 @@
                                             <tr class="gradeA">
                                                 <td>{{ group.name }}</td>
                                                 <td>{{ group.description }}</td>
-                                                <td><a href="{{ path('_edit_group', {'groupId': group.id}) }}">{% trans %}Edit{% endtrans %}</a></td>
+                                                <td>
+                                                    <a href="{{ path('_edit_group', {'groupId': group.id}) }}">{% trans %}Edit{% endtrans %}</a>
+                                                    <a href="{{ path('_delete_group', {'groupId': group.id}) }}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}')">{% trans %}Delete{% endtrans %}</a>
+                                                </td>
                                             </tr>
                                         {% endfor %}
                                 </tbody>

@@ -46,7 +46,7 @@
                                 <td>
                                     <div class="controls center">
                                         <a href="{{ path('_provider_update', { 'providerId': provider.id }) }}" title="{% trans %}Update Provider{% endtrans %}" class="tip"><span class="icon12 icomoon-icon-pencil"></span></a>
-                                        <a href="{{ path('_provider_delete', { 'providerId': provider.id }) }}" title="{% trans %}Delete Provider{% endtrans %}" class="tip"><span class="icon12 icomoon-icon-remove"></span></a>
+                                        <a href="{{ path('_provider_delete', { 'providerId': provider.id }) }}" title="{% trans %}Delete Provider{% endtrans %}" class="tip" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}')"><span class="icon12 icomoon-icon-remove"></span></a>
                                     </div>
                                 </td>
                             </tr>

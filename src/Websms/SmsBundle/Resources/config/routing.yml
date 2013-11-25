@@ -30,15 +30,13 @@ _provider_set:
     pattern:  /set-provider
     defaults: { _controller: SmsBundle:Provider:set }
 
-
-
 _address_book_items:
     pattern:  /list-addressbook
-    defaults: { _controller: SmsBundle:Sms:index }
+    defaults: { _controller: SmsBundle:Addressbook:contacts }
 
 _create_address_book_item:
     pattern:  /create-contact
-    defaults: { _controller: SmsBundle:Sms:bulk }
+    defaults: { _controller: SmsBundle:Addressbook:createcontact }
 
 _groups:
     pattern:  /groups
@@ -51,3 +49,15 @@ _create_group:
 _edit_group:
     pattern:  /edit-group/{groupId}
     defaults: { _controller: SmsBundle:Addressbook:groupedit }
+
+_delete_group:
+    pattern:  delete-group/{groupId}
+    defaults: { _controller: SmsBundle:Addressbook:groupdelete }
+
+_edit_contact:
+    pattern:  /edit-contact/{contactId}
+    defaults: { _controller: SmsBundle:Addressbook:editcontact }
+
+_delete_contact:
+    pattern:  delete-contact/{contactId}
+    defaults: { _controller: SmsBundle:Addressbook:deletecontact }

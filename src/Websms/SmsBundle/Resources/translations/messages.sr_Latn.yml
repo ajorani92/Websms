@@ -54,8 +54,11 @@ groups: grupa
 Create new group: Kreirajte novu grupu
 Description: Opis
 Group created: Grupa kreirana
+Group edited: Grupa izmenjena
 Edit: Izmeni
+Delete: Obriši
 There are no created groups: Nema kreiranih grupa
+There are no created contacts: Nema kreiranih kontakata
 Action: Akcija
 Last: Poslednji
 First: Prvi
@@ -64,3 +67,9 @@ Previous: Prethodni
 Display: Prikazuje
 to: do
 of: od
+Are you sure?: Da li ste sigurni?
+Contact created: Kontakt kreiran
+Contacts: Kontakti
+contacts: kontakta
+Contact edited: Kontakt izmenjen
+Edit contact: Izmeni kontakt
