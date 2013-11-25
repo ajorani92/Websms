@@ -34,4 +34,15 @@ interface MessageSenderInterface
      * @return boolean
      */
     public function sendBulk($message, $sender, UploadedFile $file);
+
+    /**
+     * Send messages from addressbook
+     *
+     * @param $message
+     * @param $sender
+     * @param $numbers
+     *
+     * @return mixed
+     */
+    public function sendAddressbook($message, $sender, $numbers);
 }

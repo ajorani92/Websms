@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Websms\SmsBundle\Entity\Message;
 use Websms\SmsBundle\Form\SendSms;
 use Websms\SmsBundle\Form\SendBulk;
+use Websms\SmsBundle\Form\SendAddressbook;
 
 class SmsController extends Controller
 {
@@ -97,28 +98,31 @@ class SmsController extends Controller
     {
         $pageTitle = $this->get('translator')->trans('Send Bulk Address');
 
-        $messageObject = new Message();
-        $form = $this->createForm(new SendBulk(), $messageObject);
+        $form = $this->createForm(new SendAddressbook());
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $file = $form->get('bulkFile')->getData();
+            $group = $form->get('group')->getData();
             $sender = $form->get('sender')->getData();
             $message = $form->get('message')->getData();
 
+            $numbers = $this->get('sms.contact.repository')->findByGroup($group);
+
             // Send message
             $messageSender = $this->get('sms_sender');
-            if ($messageSender->sendBulk($message, $sender, $file)) {
+            if (empty($numbers)) {
+                $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('No numbers found'));
+            } elseif ($messageSender->sendAddressbook($message, $sender, $numbers)) {
                 $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Message Sent'));
             } else {
                 $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Message Sent Error'));
             }
 
-            return $this->redirect($this->generateUrl('_sms_bulk'));
+            return $this->redirect($this->generateUrl('_sms_address'));
         }
 
-        return $this->render('SmsBundle:Sms:send_bulk.html.twig', array(
+        return $this->render('SmsBundle:Sms:send_addressbook.html.twig', array(
             'page_title' => $pageTitle,
             'form'       => $form->createView()
         ));

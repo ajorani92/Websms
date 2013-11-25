@@ -64,4 +64,22 @@ class MessageSender implements MessageSenderInterface
 
         return true;
     }
+
+    /**
+     * Send messages from addressbook
+     *
+     * @param $message
+     * @param $sender
+     * @param $numbers
+     *
+     * @return bool
+     */
+    public function sendAddressbook($message, $sender, $numbers)
+    {
+        foreach($numbers as $number) {
+            $this->sendSms($message, $sender, $number->getNumber());
+        }
+
+        return true;
+    }
 }

@@ -49,6 +49,13 @@ class Message
     protected $bulkFile;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="\Websms\SmsBundle\Entity\Group", mappedBy="user")
+     */
+    protected $userAccessLevelAssn;
+
+    /**
      * Get id
      *
      * @return integer

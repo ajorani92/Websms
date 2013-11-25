@@ -1,0 +1,24 @@
+<div class="span2">
+{{ form_start(form) }}
+        {{ form_errors(form) }}
+
+<div class="numfile">
+    {{ form_label(form.group) }}
+    {{ form_errors(form.group) }}
+    {{ form_widget(form.group) }}
+</div>
+<br>
+<div>
+    {{ form_label(form.sender) }}
+    {{ form_errors(form.sender) }}
+    {{ form_widget(form.sender) }}
+</div>
+
+<div>
+    {{ form_label(form.message) }}
+    {{ form_errors(form.message) }}
+    {{ form_widget(form.message) }}
+</div>
+
+{{ form_end(form) }}
+</div>
