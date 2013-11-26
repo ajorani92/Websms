@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Websms\SmsBundle\Entity\Provider;
 use Websms\SmsBundle\Form\CreateProvider;
 use Websms\SmsBundle\Form\SendSms;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class ProviderController extends Controller
 {
@@ -24,6 +25,10 @@ class ProviderController extends Controller
 
     public function createAction(Request $request)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException();
+        }
+
         $provider = new Provider();
 
         $form = $this->createForm(new CreateProvider(), $provider);
@@ -48,6 +53,10 @@ class ProviderController extends Controller
 
     public function updateAction($providerId, Request $request)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException();
+        }
+
         $providerRepository = $this->getDoctrine()->getRepository('SmsBundle:Provider');
 
         $provider = $providerRepository->find($providerId);
@@ -78,6 +87,10 @@ class ProviderController extends Controller
 
     public function deleteAction($providerId)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException();
+        }
+
         $providerRepository = $this->getDoctrine()->getRepository('SmsBundle:Provider');
 
         $provider = $providerRepository->find($providerId);
@@ -102,6 +115,10 @@ class ProviderController extends Controller
 
     public function setAction()
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException();
+        }
+
         $providerRepository = $this->getDoctrine()->getRepository('SmsBundle:Provider');
 
         $providers = $providerRepository->findAll();

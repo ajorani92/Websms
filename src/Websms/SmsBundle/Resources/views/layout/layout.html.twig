@@ -104,7 +104,10 @@
                                 <li class="menu">
                                     <ul>
                                         <li>
-                                            <a href="#"><span class="icon16 icomoon-icon-user-3"></span>{% trans %}Edit profile{% endtrans %}</a>
+                                            <a href="{{ path('fos_user_profile_edit') }}"><span class="icon16 icomoon-icon-pencil"></span>{% trans %}Edit profile{% endtrans %}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('fos_user_profile_show') }}"><span class="icon16 icomoon-icon-user-3"></span>{% trans %}Profile{% endtrans %}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -166,8 +169,6 @@
                     </ul>
                 </li>
 
-                <li><a href="typo.html"><span class="icon16 icomoon-icon-font"></span>{% trans %}Reports{% endtrans %}</a></li>
-
                 {% if is_granted("ROLE_ADMIN") %}
                 <li>
                     <a href="#"><span class="icon16 icomoon-icon-list-view-2"></span>{% trans %}Providers{% endtrans %}</a>
@@ -178,8 +179,6 @@
                     </ul>
                 </li>
                 {% endif %}
-
-                <li><a href="typo.html"><span class="icon16 icomoon-icon-font"></span>{% trans %}Help & FAQ{% endtrans %}</a></li>
             </ul>
         </div>
     </div><!-- End sidenav -->
