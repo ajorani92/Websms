@@ -73,24 +73,23 @@
                 <div class="nav-no-collapse">
                     <ul class="nav">
                         <li><a href="{{ path('_welcome') }}"><span class="icon16 icomoon-icon-screen-2"></span> {% trans %}Dashboard{% endtrans %}</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="icon16 icomoon-icon-cog"></span> {% trans %}Settings{% endtrans %}
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="menu">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><span class="icon16 icomoon-icon-equalizer"></span>{% trans %}Account{% endtrans %}</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><span class="icon16 icomoon-icon-wrench"></span>{% trans %}Sender{% endtrans %}</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="icon16 icomoon-icon-cog"></span> {% trans %}Users{% endtrans %}
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="menu">
+                                        <ul>
+                                            <li>
+                                                <a href="{{ path('_admin_user_create') }}"><span class="icon16 icomoon-icon-equalizer"></span>{% trans %}Create user{% endtrans %}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        {% endif %}
                     </ul>
 
                     <ul class="nav pull-right usernav">
@@ -135,10 +134,12 @@
 
     <div class="shortcuts">
         <ul>
-            <li><a href="support.html" title="Support section" class="tip"><span class="icon24 icomoon-icon-support"></span></a></li>
-            <li><a href="#" title="Database backup" class="tip"><span class="icon24 icomoon-icon-database"></span></a></li>
-            <li><a href="charts.html" title="Sales statistics" class="tip"><span class="icon24 icomoon-icon-pie-2"></span></a></li>
-            <li><a href="#" title="Write post" class="tip"><span class="icon24 icomoon-icon-pencil"></span></a></li>
+            <li><a href="{{ path('_send_sms') }}" title="{% trans %}Send Single SMS{% endtrans %}" class="tip"><span class="icon24 icomoon-icon-pencil"></span></a></li>
+            <li><a href="{{ path('_create_address_book_item') }}" title="{% trans %}Create new address book contact{% endtrans %}" class="tip"><span class="icon24 entypo-icon-contact"></span></a></li>
+            <li><a href="{{ path('_create_group') }}" title="{% trans %}Create new group{% endtrans %}" class="tip"><span class="icon24 icomoon-icon-accessibility"></span></a></li>
+            {% if is_granted("ROLE_ADMIN") %}
+                <li><a href="{{ path('_provider_create') }}" title="{% trans %}Create Provider{% endtrans %}" class="tip"><span class="icon24 cut-icon-plus"></span></a></li>
+            {% endif %}
         </ul>
     </div><!-- End search -->
 
@@ -151,30 +152,30 @@
         <div class="mainnav">
             <ul>
                 <li>
-                    <a href="#"><span class="icon16 icomoon-icon-list-view-2"></span>{% trans %}SMS Messaging{% endtrans %}</a>
+                    <a href="#"><span class="icon16 icomoon-icon-pencil-2"></span>{% trans %}SMS Messaging{% endtrans %}</a>
                     <ul class="sub">
-                        <li><a href="{{ path('_send_sms') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Send Single SMS{% endtrans %}</a></li>
-                        <li><a href="{{ path('_sms_bulk') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Send Bulk SMS{% endtrans %}</a></li>
-                        <li><a href="{{ path('_sms_address') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Send SMS from Addressbook{% endtrans %}</a></li>
+                        <li><a href="{{ path('_send_sms') }}"><span class="icon16 icomoon-icon-pencil"></span>{% trans %}Send Single SMS{% endtrans %}</a></li>
+                        <li><a href="{{ path('_sms_bulk') }}"><span class="icon16 icomoon-icon-folder-upload"></span>{% trans %}Send Bulk SMS{% endtrans %}</a></li>
+                        <li><a href="{{ path('_sms_address') }}"><span class="icon16 iconic-icon-book-alt2"></span>{% trans %}Send SMS from Addressbook{% endtrans %}</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#"><span class="icon16 icomoon-icon-list-view-2"></span>{% trans %}Address Book{% endtrans %}</a>
+                    <a href="#"><span class="icon16 brocco-icon-address-book"></span>{% trans %}Address Book{% endtrans %}</a>
                     <ul class="sub">
-                        <li><a href="{{ path('_address_book_items') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Address Book Items{% endtrans %}</a></li>
-                        <li><a href="{{ path('_create_address_book_item') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Create new address book contact{% endtrans %}</a></li>
-                        <li><a href="{{ path('_groups') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Groups{% endtrans %}</a></li>
-                        <li><a href="{{ path('_create_group') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Create new group{% endtrans %}</a></li>
+                        <li><a href="{{ path('_address_book_items') }}"><span class="icon16 entypo-icon-book"></span>{% trans %}Address Book Items{% endtrans %}</a></li>
+                        <li><a href="{{ path('_create_address_book_item') }}"><span class="icon16 entypo-icon-contact"></span>{% trans %}Create new address book contact{% endtrans %}</a></li>
+                        <li><a href="{{ path('_groups') }}"><span class="icon16 icomoon-icon-users"></span>{% trans %}Groups{% endtrans %}</a></li>
+                        <li><a href="{{ path('_create_group') }}"><span class="icon16 icomoon-icon-accessibility"></span>{% trans %}Create new group{% endtrans %}</a></li>
                     </ul>
                 </li>
 
                 {% if is_granted("ROLE_ADMIN") %}
                 <li>
-                    <a href="#"><span class="icon16 icomoon-icon-list-view-2"></span>{% trans %}Providers{% endtrans %}</a>
+                    <a href="#"><span class="icon16 icomoon-icon-globe"></span>{% trans %}Providers{% endtrans %}</a>
                     <ul class="sub">
-                            <li><a href="{{ path('_provider_create') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Create Provider{% endtrans %}</a></li>
-                            <li><a href="{{ path('_provider_list') }}"><span class="icon16 icomoon-icon-file"></span>{% trans %}Provider List{% endtrans %}</a></li>
+                            <li><a href="{{ path('_provider_create') }}"><span class="icon16 cut-icon-plus"></span>{% trans %}Create Provider{% endtrans %}</a></li>
+                            <li><a href="{{ path('_provider_list') }}"><span class="icon16 brocco-icon-list"></span>{% trans %}Provider List{% endtrans %}</a></li>
 
                     </ul>
                 </li>

@@ -1,5 +1,43 @@
 {% extends 'SmsBundle::layout/layout.html.twig' %}
 
 {% block body %}
-This is dashboard!
+    <div class="span8">
+        <div class="centerContent">
+
+            <ul class="bigBtnIcon">
+                <li>
+                    <a href="{{ path('_send_sms') }}">
+                        <span class="icon icomoon-icon-pencil"></span>
+                        <span class="txt">{% trans %}Send single SMS{% endtrans %}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('_address_book_items') }}">
+                        <span class="icon entypo-icon-book"></span>
+                        <span class="txt">{% trans %}Contacts{% endtrans %}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('_create_address_book_item') }}">
+                        <span class="icon entypo-icon-contact"></span>
+                        <span class="txt">{% trans %}Create contact{% endtrans %}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('_groups') }}" title="{% trans %}Groups{% endtrans %}" class="pattern tipB">
+                        <span class="icon icomoon-icon-users"></span>
+                        <span class="txt">{% trans %}Groups{% endtrans %}</span>
+                    </a>
+                </li>
+                {% if is_granted("ROLE_ADMIN") %}
+                <li>
+                    <a href="{{ path('_provider_list') }}">
+                        <span class="icon brocco-icon-list"></span>
+                        <span class="txt">{% trans %}Providers{% endtrans %}</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div><!-- End .span8 -->
 {% endblock %}

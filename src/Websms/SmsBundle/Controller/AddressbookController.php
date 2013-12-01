@@ -159,7 +159,7 @@ class AddressbookController extends Controller
      */
     public function createcontactAction(Request $request)
     {
-        $pageTitle = $this->get('translator')->trans('Create new contact');
+        $pageTitle = $this->get('translator')->trans('Create contact');
         $user = $this->getUser();
 
         $contact = new Contact();

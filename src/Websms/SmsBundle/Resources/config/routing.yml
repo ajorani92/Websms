@@ -65,3 +65,7 @@ _delete_contact:
 _account_edit:
     pattern:  account/edit
     defaults: { _controller: SmsBundle:Addressbook:deletecontact }
+
+_admin_user_create:
+    pattern:  admin/user/create
+    defaults: { _controller: SmsBundle:User:create }

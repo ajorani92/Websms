@@ -20,6 +20,7 @@ Account settings: Podešavanje naloga
 Sender: Pošaljioc
 Account: Nalog
 Send SMS: Pošalji SMS poruku
+Send single SMS: Pošalji poruku
 Destination_message: Primalac poruke
 Message: Poruka
 message: poruka
@@ -71,8 +72,14 @@ Are you sure?: Da li ste sigurni?
 Contact created: Kontakt kreiran
 Contacts: Kontakti
 contacts: kontakta
+Create contact: Napravi kontakt
 Contact edited: Kontakt izmenjen
 Edit contact: Izmeni kontakt
 No numbers found: Nema nadjenih brojeva
 Edit account: Izmeni nalog
 Profile: Profil
+Create user: Kreiraj korisnika
+User created: Korisnik napravljen
+Username: Korisničko ime
+Password: Šifra
+Users: Korisnici
