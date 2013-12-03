@@ -16,3 +16,9 @@ Create database:
 Update database:
 
 <code>php app/console doctrine:schema:update --force</code>
+
+Ensure permissions for logs and cache:
+
+<code>chmod 777 app/cache/ -R</code>
+
+<code>chmod 777 app/logs/ -R</code>
