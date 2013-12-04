@@ -21,7 +21,6 @@ Websms\SmsBundle\Entity\Message:
                 type: numeric
                 message: "sms.destination.type"
         bulkFile:
-            - NotBlank: ~
             - File:
                 maxSize: 1024k
                 maxSizeMessage: "sms.bulk.max.size"

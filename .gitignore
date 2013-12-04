@@ -1,6 +1,5 @@
 /vendor/
-/app/cache/
-/app/logs/
-/app/logs/dev.log
+/app/cache/*
+/app/logs/*
 /web/css/
 /web/js/
